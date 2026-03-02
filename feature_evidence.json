@@ -2,11 +2,12 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-dedicated-profile-page-route-profile-accessible-from-the-site-header-the-page-should-display-the-user-s-authentication-state-if-not-logged-in-show-a-prompt-to-sign-in-via-internet-identity-with-a-sign-in-button-if-logged-in-display-the-user-s-principal-id-abbreviated-and-a-sign-out-button",
-      "featureTitle": "Create a dedicated Profile page (route: /profile) accessible from the site header. The page should display the user's authentication state: if not logged in, show a prompt to sign in via Internet Identity with a sign-in button; if logged in, display the user's principal ID (abbreviated) and a sign-out button.",
+      "featureId": "feature-add-a-password-gate-to-the-admin-panel-page-before-any-admin-content-is-rendered-display-a-centered-password-entry-screen-matching-the-luxury-jade-dark-aesthetic-with-a-password-input-field-and-a-enter-button-the-hardcoded-password-is-mrudani-jade-jyo-hem-if-the-entered-password-matches-grant-access-to-the-full-admin-panel-if-incorrect-display-an-error-message-the-authenticated-state-should-persist-for-the-current-browser-session-e-g-via-react-state-or-sessionstorage-so-the-user-is-not-re-prompted-on-page-refresh-within-the-same-session",
+      "featureTitle": "Add a password gate to the admin panel page. Before any admin content is rendered, display a centered password entry screen (matching the luxury Jade dark aesthetic) with a password input field and a 'Enter' button. The hardcoded password is 'Mrudani.jade.jyo.hem'. If the entered password matches, grant access to the full admin panel. If incorrect, display an error message. The authenticated state should persist for the current browser session (e.g., via React state or sessionStorage) so the user is not re-prompted on page refresh within the same session.",
       "files": [
         "frontend/src/App.tsx",
-        "frontend/src/pages/ProfilePage.tsx"
+        "frontend/src/components/Header.tsx",
+        "frontend/src/pages/AdminPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,43 +17,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-11"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-on-the-profile-page-add-an-my-orders-section-that-allows-authenticated-users-to-look-up-and-view-their-past-orders-display-each-order-s-id-date-placed-total-price-item-list-and-current-status-reuse-the-existing-order-retrieval-backend-query-getorder-and-the-orderstatustimeline-component-for-each-order-s-status-display",
-      "featureTitle": "On the Profile page, add an 'My Orders' section that allows authenticated users to look up and view their past orders. Display each order's ID, date placed, total price, item list, and current status. Reuse the existing order retrieval backend query (getOrder) and the OrderStatusTimeline component for each order's status display.",
-      "files": [
-        "frontend/src/pages/ProfilePage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-12"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-a-profile-navigation-link-in-the-site-header-header-tsx-that-navigates-to-profile-when-the-user-is-authenticated-the-link-or-a-user-avatar-icon-should-be-visually-highlighted-to-indicate-a-logged-in-state-register-the-profile-route-in-app-tsx-s-router-configuration",
-      "featureTitle": "Add a 'Profile' navigation link in the site header (Header.tsx) that navigates to /profile. When the user is authenticated, the link or a user avatar/icon should be visually highlighted to indicate a logged-in state. Register the /profile route in App.tsx's router configuration.",
-      "files": [
-        "frontend/src/components/Header.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-13"
+        "REQ-15"
       ],
       "confidence": "high"
     }

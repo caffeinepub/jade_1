@@ -1,13 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Add a user Profile page with authentication info and order lookup to the Jade storefront.
+**Goal:** Add a password gate to the admin panel so only authorized users can access it.
 
 **Planned changes:**
-- Add a `/profile` route in `App.tsx`
-- Create a `Profile` page that shows a sign-in prompt (with Internet Identity button) for unauthenticated users, or the user's abbreviated principal ID and a sign-out button for authenticated users
-- Add a "My Orders" section on the Profile page where authenticated users can enter an order ID to retrieve and display order details (order ID, date, total price, item list, and status using the existing `OrderStatusTimeline` component)
-- Add a "Profile" navigation link/icon in the site header (`Header.tsx`) for both desktop and mobile menus, visually highlighted when the user is authenticated
-- Reuse existing `useInternetIdentity` and `useGetOrder` hooks; maintain the existing Jade luxury dark editorial theme
+- Display a centered password entry screen before any admin panel content is rendered, styled with the Jade luxury dark aesthetic (charcoal background, gold accents, cream text).
+- Include a masked password input field and an "Enter" button.
+- Grant access when the correct password (`Mrudani.jade.jyo.hem`) is entered; show an error message on incorrect attempts.
+- Persist the authenticated state for the current browser session using `sessionStorage` so the user is not re-prompted on page reload.
 
-**User-visible outcome:** Users can navigate to a Profile page from the header, sign in or out via Internet Identity, and look up past orders by order ID to view their details and status.
+**User-visible outcome:** Visiting the admin panel now requires entering the correct password before any admin content is shown. Once authenticated, the session persists until the browser tab/session is closed.

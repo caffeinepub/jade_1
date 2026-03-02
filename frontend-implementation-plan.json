@@ -1,63 +1,34 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add User Profile Section with Auth Info and Order History",
+  "title": "Add password protection to the admin panel",
   "requirements": [
     {
-      "id": "REQ-11",
-      "summary": "Create a dedicated Profile page at /profile displaying authentication state with sign-in/sign-out actions and abbreviated principal ID for authenticated users",
+      "id": "REQ-15",
+      "summary": "Add password gate to admin panel with session persistence",
       "acceptanceCriteria": [
-        "A /profile route exists and renders the Profile page",
-        "Unauthenticated users see a sign-in prompt and a button that triggers Internet Identity login",
-        "Authenticated users see their abbreviated principal ID displayed",
-        "Authenticated users can sign out from the Profile page",
-        "The Profile page uses the existing useInternetIdentity hook for auth state"
+        "Navigating to the admin panel route shows a password entry screen before any admin content is visible.",
+        "Entering the correct password 'Mrudani.jade.jyo.hem' and submitting grants access to the full admin panel.",
+        "Entering an incorrect password displays a visible error message and does not grant access.",
+        "The password entry screen uses the Jade luxury dark aesthetic (charcoal background, gold accents, cream text).",
+        "Once authenticated within a session, the user is not re-prompted on page reload (sessionStorage persistence).",
+        "The password input masks the entered characters (type='password')."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/ProfilePage.tsx",
+          "path": "frontend/src/pages/AdminPage.tsx",
           "operation": "create",
-          "description": "Create the Profile page component that displays authentication state using the useInternetIdentity hook. For unauthenticated users, show a sign-in prompt with an Internet Identity login button. For authenticated users, display the abbreviated principal ID (first 8 and last 4 characters with ellipsis) and a sign-out button. Apply the existing Jade luxury dark theme using Tailwind utility classes with gold/charcoal/cream palette. Include a container for the My Orders section (REQ-12)."
+          "description": "Create the admin panel page component with password gate logic. Before rendering any admin content, check sessionStorage for 'adminAuthenticated' flag. If not authenticated, display a centered password entry screen with a password input field (type='password'), an 'Enter' button, and error message state. On submit, compare the entered password to the hardcoded value 'Mrudani.jade.jyo.hem'. If correct, set sessionStorage 'adminAuthenticated' to 'true' and update component state to render the admin panel content (product management interface with add/edit capabilities). If incorrect, display an error message 'Incorrect password. Please try again.' The password entry screen should use the Jade luxury dark aesthetic: charcoal background (bg-charcoal), gold accents for the button and focus states (text-gold, border-gold), and cream text (text-cream). The admin panel content should include a product management interface with forms for adding new products (name, price, image URL, category selection) and functionality to interact with the backend addProduct method."
         },
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Register the /profile route in the TanStack Router configuration. Import the ProfilePage component and add it as a child route alongside the existing catalog, order-tracking, and order-confirmation routes. Ensure the route uses the same root layout (CartProvider + Layout) as other pages."
-        }
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "summary": "Add a 'My Orders' section to the Profile page allowing authenticated users to look up past orders by ID and view order details with status timeline",
-      "acceptanceCriteria": [
-        "Authenticated users on /profile see a 'My Orders' section",
-        "Users can enter an order ID to retrieve and display order details on their profile",
-        "Each order displays: order ID, date placed, total price, list of items, and current status",
-        "OrderStatusTimeline component is used to visualise the order status",
-        "Unauthenticated users see a message prompting them to sign in to view orders"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/ProfilePage.tsx",
-          "operation": "modify",
-          "description": "Add the 'My Orders' section to the Profile page. For authenticated users, include an order ID input field and a lookup button that calls the useGetOrder hook. Display retrieved order details including order ID, formatted timestamp (date placed), total price, list of items (product name, quantity, price), and the current status. Integrate the OrderStatusTimeline component to visualize the order status. For unauthenticated users, display a message prompting them to sign in to view orders. Handle loading and error states gracefully with appropriate UI feedback."
-        }
-      ]
-    },
-    {
-      "id": "REQ-13",
-      "summary": "Add a Profile navigation link to the site header with visual indication of authentication state and register the /profile route",
-      "acceptanceCriteria": [
-        "The header contains a 'Profile' link/icon that navigates to /profile",
-        "When authenticated, the header profile indicator is visually distinct (e.g., highlighted icon or avatar)",
-        "The /profile route is registered in App.tsx",
-        "The Profile link is present on both desktop and mobile navigation menus"
-      ],
-      "file_operations": [
+          "description": "Add a new route definition for the admin panel page at path '/admin'. Import the AdminPage component and register it as a child route in the TanStack Router configuration alongside the existing routes (landing, catalog, order-tracking, order-confirmation, profile). Ensure the admin route is wrapped by the root layout route so it has access to CartProvider and the Layout component."
+        },
         {
           "path": "frontend/src/components/Header.tsx",
           "operation": "modify",
-          "description": "Add a Profile navigation link/icon to the Header component that navigates to /profile using TanStack Router's Link component. Use the useInternetIdentity hook to determine authentication state. For authenticated users, display a visually distinct profile icon or avatar (e.g., highlighted with gold accent color from the Jade theme). For unauthenticated users, display a standard profile icon. Include the Profile link in both the desktop navigation menu and the mobile menu. Position the Profile link near the cart icon in the header layout."
+          "description": "Add a navigation link to the admin panel in the site header navigation. Include a new Link component pointing to '/admin' with the text 'Admin' styled consistently with existing navigation links. Position it appropriately in the navigation menu (e.g., after the Profile link or in a location that makes sense for administrative access). Use existing Tailwind classes for hover and active states matching the luxury brand aesthetic."
         }
       ]
     }

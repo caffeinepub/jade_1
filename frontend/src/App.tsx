@@ -6,6 +6,7 @@ import CatalogPage from './pages/CatalogPage';
 import OrderTrackingPage from './pages/OrderTrackingPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import ProfilePage from './pages/ProfilePage';
+import AdminPage from './pages/AdminPage';
 
 // Root route with layout
 const rootRoute = createRootRoute({
@@ -56,12 +57,19 @@ const profileRoute = createRoute({
   component: ProfilePage,
 });
 
+const adminRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/admin',
+  component: AdminPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   catalogRoute,
   trackOrderRoute,
   orderConfirmationRoute,
   profileRoute,
+  adminRoute,
 ]);
 
 const router = createRouter({ routeTree });

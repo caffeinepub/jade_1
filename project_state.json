@@ -1,12 +1,13 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 9,
+  "projectStateVersion": 13,
   "summary": "E-commerce website for clothing brand 'Jade' featuring a 3D immersive interface, AI chatbot for outfit suggestions, order tracking, product catalog, separate sections for shoes, women's clothing, and men's clothing, with planned additions of Internet Identity login (Google, Apple, Microsoft accounts) and multiple payment options.",
   "architectural_notes": [
     "3D interface likely requires Three.js or similar WebGL library for immersive visuals",
     "AI chatbot for outfit suggestions may use an LLM API (e.g., OpenAI) on the backend",
     "Brand name: Jade — all UI/UX should reflect the brand identity",
-    "Authentication uses Internet Identity (passkeys, Google, Apple, Microsoft) — no standalone email/password or direct Gmail OAuth"
+    "Authentication uses Internet Identity (passkeys, Google, Apple, Microsoft) — no standalone email/password or direct Gmail OAuth",
+    "Admin panel is password-protected with a hardcoded password gate (client-side); password can be updated in code"
   ],
   "known_issues": [
     "Build failures when attempting to add multiple features simultaneously (email login, payment options, separate sections) — should be implemented in smaller steps"
@@ -116,6 +117,22 @@
         "REQ-13"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-deploy-the-full-jade-application-frontend-and-backend-canisters-to-the-internet-computer-mainnet-so-the-site-is-publicly-accessible-at-a-live-ic-url",
+      "title": "Deploy the full Jade application (frontend and backend canisters) to the Internet Computer mainnet so the site is publicly accessible at a live IC URL.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-password-gate-to-the-admin-panel-page-before-any-admin-content-is-rendered-display-a-centered-password-entry-screen-matching-the-luxury-jade-dark-aesthetic-with-a-password-input-field-and-a-enter-button-the-hardcoded-password-is-mrudani-jade-jyo-hem-if-the-entered-password-matches-grant-access-to-the-full-admin-panel-if-incorrect-display-an-error-message-the-authenticated-state-should-persist-for-the-current-browser-session-e-g-via-react-state-or-sessionstorage-so-the-user-is-not-re-prompted-on-page-refresh-within-the-same-session",
+      "title": "Add a password gate to the admin panel page. Before any admin content is rendered, display a centered password entry screen (matching the luxury Jade dark aesthetic) with a password input field and a 'Enter' button. The hardcoded password is 'Mrudani.jade.jyo.hem'. If the entered password matches, grant access to the full admin panel. If incorrect, display an error message. The authenticated state should persist for the current browser session (e.g., via React state or sessionStorage) so the user is not re-prompted on page refresh within the same session.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -170,6 +187,12 @@
     {
       "id": "AR-10",
       "summary": "Separate profile section where users can access their login/signup information and view their orders",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Admin panel with password protection (hardcoded password gate before accessing the panel)",
       "reqIds": [],
       "status": "pending"
     }

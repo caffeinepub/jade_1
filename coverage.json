@@ -1,47 +1,27 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T18:58:29.672Z",
+  "generatedAt": "2026-03-02T19:22:14.534Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-11",
-        "summary": "Create a dedicated Profile page (route: /profile) accessible from the site header. The page should display the user's authentication state: if not logged in, show a prompt to sign in via Internet Identity with a sign-in button; if logged in, display the user's principal ID (abbreviated) and a sign-out button.",
+        "id": "REQ-15",
+        "summary": "Add a password gate to the admin panel page. Before any admin content is rendered, display a centered password entry screen (matching the luxury Jade dark aesthetic) with a password input field and a 'Enter' button. The hardcoded password is 'Mrudani.jade.jyo.hem'. If the entered password matches, grant access to the full admin panel. If incorrect, display an error message. The authenticated state should persist for the current browser session (e.g., via React state or sessionStorage) so the user is not re-prompted on page refresh within the same session.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/ProfilePage.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/ProfilePage.tsx",
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-12",
-        "summary": "On the Profile page, add an 'My Orders' section that allows authenticated users to look up and view their past orders. Display each order's ID, date placed, total price, item list, and current status. Reuse the existing order retrieval backend query (getOrder) and the OrderStatusTimeline component for each order's status display.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/ProfilePage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/ProfilePage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-13",
-        "summary": "Add a 'Profile' navigation link in the site header (Header.tsx) that navigates to /profile. When the user is authenticated, the link or a user avatar/icon should be visually highlighted to indicate a logged-in state. Register the /profile route in App.tsx's router configuration.",
-        "status": "implemented",
-        "plannedFiles": [
+          "frontend/src/pages/AdminPage.tsx",
+          "frontend/src/App.tsx",
           "frontend/src/components/Header.tsx"
         ],
         "matchedFiles": [
+          "frontend/src/pages/AdminPage.tsx",
+          "frontend/src/App.tsx",
           "frontend/src/components/Header.tsx"
         ]
       }
@@ -54,7 +34,7 @@
     "frontend-implementation-plan.json",
     "frontend/src/App.tsx",
     "frontend/src/components/Header.tsx",
-    "frontend/src/pages/ProfilePage.tsx",
+    "frontend/src/pages/AdminPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

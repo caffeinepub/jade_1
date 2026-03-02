@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from '@tanstack/react-router';
-import { ShoppingBag, Menu, X, Package, LogIn, LogOut, User } from 'lucide-react';
+import { ShoppingBag, Menu, X, Package, LogIn, LogOut, User, ShieldCheck } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -125,6 +125,21 @@ export default function Header() {
             ) : (
               <User className="w-5 h-5" />
             )}
+          </Button>
+
+          {/* Admin icon — desktop */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => navigate({ to: '/admin' })}
+            className={`hidden md:flex transition-colors ${
+              isActive('/admin')
+                ? 'text-gold bg-gold/10'
+                : 'text-cream/70 hover:text-gold hover:bg-gold/10'
+            }`}
+            title="Admin Panel"
+          >
+            <ShieldCheck className="w-5 h-5" />
           </Button>
 
           <Button
@@ -259,6 +274,17 @@ export default function Header() {
             ) : (
               'Profile'
             )}
+          </button>
+
+          {/* Admin link — mobile */}
+          <button
+            onClick={() => { navigate({ to: '/admin' }); setMobileOpen(false); }}
+            className={`flex items-center gap-2 font-sans text-sm tracking-widest uppercase py-2 text-left bg-transparent border-0 cursor-pointer transition-colors duration-300 ${
+              isActive('/admin') ? 'text-gold' : 'text-cream/70'
+            }`}
+          >
+            <ShieldCheck className="w-4 h-4" />
+            Admin
           </button>
 
           {/* Auth — mobile */}
