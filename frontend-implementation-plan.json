@@ -1,0 +1,65 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add User Profile Section with Auth Info and Order History",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "summary": "Create a dedicated Profile page at /profile displaying authentication state with sign-in/sign-out actions and abbreviated principal ID for authenticated users",
+      "acceptanceCriteria": [
+        "A /profile route exists and renders the Profile page",
+        "Unauthenticated users see a sign-in prompt and a button that triggers Internet Identity login",
+        "Authenticated users see their abbreviated principal ID displayed",
+        "Authenticated users can sign out from the Profile page",
+        "The Profile page uses the existing useInternetIdentity hook for auth state"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProfilePage.tsx",
+          "operation": "create",
+          "description": "Create the Profile page component that displays authentication state using the useInternetIdentity hook. For unauthenticated users, show a sign-in prompt with an Internet Identity login button. For authenticated users, display the abbreviated principal ID (first 8 and last 4 characters with ellipsis) and a sign-out button. Apply the existing Jade luxury dark theme using Tailwind utility classes with gold/charcoal/cream palette. Include a container for the My Orders section (REQ-12)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the /profile route in the TanStack Router configuration. Import the ProfilePage component and add it as a child route alongside the existing catalog, order-tracking, and order-confirmation routes. Ensure the route uses the same root layout (CartProvider + Layout) as other pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Add a 'My Orders' section to the Profile page allowing authenticated users to look up past orders by ID and view order details with status timeline",
+      "acceptanceCriteria": [
+        "Authenticated users on /profile see a 'My Orders' section",
+        "Users can enter an order ID to retrieve and display order details on their profile",
+        "Each order displays: order ID, date placed, total price, list of items, and current status",
+        "OrderStatusTimeline component is used to visualise the order status",
+        "Unauthenticated users see a message prompting them to sign in to view orders"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProfilePage.tsx",
+          "operation": "modify",
+          "description": "Add the 'My Orders' section to the Profile page. For authenticated users, include an order ID input field and a lookup button that calls the useGetOrder hook. Display retrieved order details including order ID, formatted timestamp (date placed), total price, list of items (product name, quantity, price), and the current status. Integrate the OrderStatusTimeline component to visualize the order status. For unauthenticated users, display a message prompting them to sign in to view orders. Handle loading and error states gracefully with appropriate UI feedback."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Add a Profile navigation link to the site header with visual indication of authentication state and register the /profile route",
+      "acceptanceCriteria": [
+        "The header contains a 'Profile' link/icon that navigates to /profile",
+        "When authenticated, the header profile indicator is visually distinct (e.g., highlighted icon or avatar)",
+        "The /profile route is registered in App.tsx",
+        "The Profile link is present on both desktop and mobile navigation menus"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Add a Profile navigation link/icon to the Header component that navigates to /profile using TanStack Router's Link component. Use the useInternetIdentity hook to determine authentication state. For authenticated users, display a visually distinct profile icon or avatar (e.g., highlighted with gold accent color from the Jade theme). For unauthenticated users, display a standard profile icon. Include the Profile link in both the desktop navigation menu and the mobile menu. Position the Profile link near the cart icon in the header layout."
+        }
+      ]
+    }
+  ]
+}

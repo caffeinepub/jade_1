@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 9,
+  "summary": "E-commerce website for clothing brand 'Jade' featuring a 3D immersive interface, AI chatbot for outfit suggestions, order tracking, product catalog, separate sections for shoes, women's clothing, and men's clothing, with planned additions of Internet Identity login (Google, Apple, Microsoft accounts) and multiple payment options.",
+  "architectural_notes": [
+    "3D interface likely requires Three.js or similar WebGL library for immersive visuals",
+    "AI chatbot for outfit suggestions may use an LLM API (e.g., OpenAI) on the backend",
+    "Brand name: Jade — all UI/UX should reflect the brand identity",
+    "Authentication uses Internet Identity (passkeys, Google, Apple, Microsoft) — no standalone email/password or direct Gmail OAuth"
+  ],
+  "known_issues": [
+    "Build failures when attempting to add multiple features simultaneously (email login, payment options, separate sections) — should be implemented in smaller steps"
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-striking-3d-immersive-landing-page-using-three-js-react-three-fiber-that-greets-visitors-with-an-animated-3d-scene-e-g-floating-fabric-clothing-pieces-a-rotating-3d-logo-particle-effects-that-plays-on-load-and-creates-a-memorable-first-impression-the-scene-should-be-interactive-responds-to-mouse-movement-and-transition-smoothly-into-the-main-site",
+      "title": "Create a striking 3D immersive landing page using Three.js/React Three Fiber that greets visitors with an animated 3D scene (e.g., floating fabric/clothing pieces, a rotating 3D logo, particle effects) that plays on load and creates a memorable first impression. The scene should be interactive (responds to mouse movement) and transition smoothly into the main site.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-product-catalog-page-displaying-all-available-clothing-items-each-product-card-should-show-a-product-image-name-price-category-and-an-add-to-cart-button-include-category-filter-tabs-e-g-tops-bottoms-dresses-accessories-and-a-search-bar-to-filter-products-by-name",
+      "title": "Build a product catalog page displaying all available clothing items. Each product card should show a product image, name, price, category, and an 'Add to Cart' button. Include category filter tabs (e.g., Tops, Bottoms, Dresses, Accessories) and a search bar to filter products by name.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-shopping-cart-and-order-placement-flow-users-can-view-cart-contents-adjust-quantities-remove-items-and-place-an-order-on-order-placement-an-order-record-is-created-in-the-backend-with-a-unique-order-id-list-of-items-total-price-and-an-initial-status-of-processing",
+      "title": "Implement a shopping cart and order placement flow. Users can view cart contents, adjust quantities, remove items, and place an order. On order placement, an order record is created in the backend with a unique order ID, list of items, total price, and an initial status of 'Processing'.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-order-tracking-page-where-users-can-enter-their-order-id-to-look-up-the-current-status-of-their-order-display-the-order-details-items-ordered-total-date-placed-and-a-visual-status-timeline-showing-stages-processing-confirmed-shipped-delivered",
+      "title": "Create an order tracking page where users can enter their order ID to look up the current status of their order. Display the order details (items ordered, total, date placed) and a visual status timeline showing stages: Processing → Confirmed → Shipped → Delivered.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-ai-outfit-suggestion-chatbot-as-a-floating-chat-widget-bottom-right-corner-the-chatbot-conducts-a-simple-conversation-it-asks-users-about-their-style-preferences-occasion-and-preferred-colors-then-suggests-outfit-combinations-from-the-available-product-catalog-the-suggestions-include-clickable-product-links-that-take-users-to-the-catalog-with-that-item-highlighted",
+      "title": "Implement an AI outfit suggestion chatbot as a floating chat widget (bottom-right corner). The chatbot conducts a simple conversation: it asks users about their style preferences, occasion, and preferred colors, then suggests outfit combinations from the available product catalog. The suggestions include clickable product links that take users to the catalog with that item highlighted.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-luxury-fashion-visual-theme-throughout-the-site-use-a-dark-editorial-aesthetic-with-an-off-black-deep-charcoal-background-cream-ivory-text-gold-accent-colors-and-clean-serif-sans-serif-typography-pairing-the-layout-should-feel-high-end-and-minimal-inspired-by-luxury-fashion-houses-with-generous-whitespace-elegant-hover-animations-and-smooth-page-transitions",
+      "title": "Apply a cohesive luxury fashion visual theme throughout the site. Use a dark, editorial aesthetic with an off-black/deep charcoal background, cream/ivory text, gold accent colors, and clean serif/sans-serif typography pairing. The layout should feel high-end and minimal — inspired by luxury fashion houses — with generous whitespace, elegant hover animations, and smooth page transitions.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-men-s-category-section-to-the-product-catalog-include-a-dedicated-navigation-tab-filter-in-the-catalog-page-that-filters-products-by-a-mens-category-add-sample-men-s-clothing-products-e-g-shirts-trousers-jackets-to-the-backend-seed-data-under-this-category",
+      "title": "Add a 'Men's' category section to the product catalog. Include a dedicated navigation tab/filter in the catalog page that filters products by a 'Mens' category. Add sample men's clothing products (e.g., shirts, trousers, jackets) to the backend seed data under this category.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-women-s-category-section-to-the-product-catalog-include-a-dedicated-navigation-tab-filter-in-the-catalog-page-that-filters-products-by-a-womens-category-add-sample-women-s-clothing-products-e-g-dresses-blouses-skirts-to-the-backend-seed-data-under-this-category",
+      "title": "Add a 'Women's' category section to the product catalog. Include a dedicated navigation tab/filter in the catalog page that filters products by a 'Womens' category. Add sample women's clothing products (e.g., dresses, blouses, skirts) to the backend seed data under this category.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-shoes-category-section-to-the-product-catalog-include-a-dedicated-navigation-tab-filter-in-the-catalog-page-that-filters-products-by-a-shoes-category-add-sample-shoe-products-e-g-heels-sneakers-boots-to-the-backend-seed-data-under-this-category-also-add-a-shoes-link-in-the-main-site-header-navigation",
+      "title": "Add a 'Shoes' category section to the product catalog. Include a dedicated navigation tab/filter in the catalog page that filters products by a 'Shoes' category. Add sample shoe products (e.g., heels, sneakers, boots) to the backend seed data under this category. Also add a 'Shoes' link in the main site header navigation.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-integrate-internet-identity-authentication-into-the-jade-site-add-a-sign-in-button-to-the-site-header-that-triggers-the-internet-identity-login-flow-supporting-google-apple-and-microsoft-accounts-via-passkeys-display-the-user-s-authenticated-state-in-the-header-e-g-show-a-user-avatar-or-abbreviated-principal-id-and-a-sign-out-option-when-logged-in-use-the-existing-useinternetidentity-hook-already-present-in-the-codebase",
+      "title": "Integrate Internet Identity authentication into the Jade site. Add a 'Sign In' button to the site header that triggers the Internet Identity login flow (supporting Google, Apple, and Microsoft accounts via passkeys). Display the user's authenticated state in the header (e.g., show a user avatar or abbreviated principal ID and a 'Sign Out' option when logged in). Use the existing useInternetIdentity hook already present in the codebase.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-dedicated-profile-page-route-profile-accessible-from-the-site-header-the-page-should-display-the-user-s-authentication-state-if-not-logged-in-show-a-prompt-to-sign-in-via-internet-identity-with-a-sign-in-button-if-logged-in-display-the-user-s-principal-id-abbreviated-and-a-sign-out-button",
+      "title": "Create a dedicated Profile page (route: /profile) accessible from the site header. The page should display the user's authentication state: if not logged in, show a prompt to sign in via Internet Identity with a sign-in button; if logged in, display the user's principal ID (abbreviated) and a sign-out button.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-profile-page-add-an-my-orders-section-that-allows-authenticated-users-to-look-up-and-view-their-past-orders-display-each-order-s-id-date-placed-total-price-item-list-and-current-status-reuse-the-existing-order-retrieval-backend-query-getorder-and-the-orderstatustimeline-component-for-each-order-s-status-display",
+      "title": "On the Profile page, add an 'My Orders' section that allows authenticated users to look up and view their past orders. Display each order's ID, date placed, total price, item list, and current status. Reuse the existing order retrieval backend query (getOrder) and the OrderStatusTimeline component for each order's status display.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-profile-navigation-link-in-the-site-header-header-tsx-that-navigates-to-profile-when-the-user-is-authenticated-the-link-or-a-user-avatar-icon-should-be-visually-highlighted-to-indicate-a-logged-in-state-register-the-profile-route-in-app-tsx-s-router-configuration",
+      "title": "Add a 'Profile' navigation link in the site header (Header.tsx) that navigates to /profile. When the user is authenticated, the link or a user avatar/icon should be visually highlighted to indicate a logged-in state. Register the /profile route in App.tsx's router configuration.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "3D immersive landing/home page experience that makes a strong visual impression",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "AI chatbot that suggests outfits to users based on preferences",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Order tracking feature for customers",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Product catalog displaying available clothing items",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Multiple payment options at checkout",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Separate section for shoes in the catalog/navigation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Separate section for women's clothing in the catalog/navigation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Separate section for men's clothing in the catalog/navigation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Separate profile section where users can access their login/signup information and view their orders",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Jade",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

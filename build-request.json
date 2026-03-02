@@ -1,0 +1,83 @@
+{
+  "kind": "build_request",
+  "title": "Add User Profile Section with Auth Info and Order History",
+  "projectName": "Jade",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "text": "Create a dedicated Profile page (route: /profile) accessible from the site header. The page should display the user's authentication state: if not logged in, show a prompt to sign in via Internet Identity with a sign-in button; if logged in, display the user's principal ID (abbreviated) and a sign-out button.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "A separate profile section where user can access the login or signup information and their orders"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A /profile route exists and renders the Profile page",
+        "Unauthenticated users see a sign-in prompt and a button that triggers Internet Identity login",
+        "Authenticated users see their abbreviated principal ID displayed",
+        "Authenticated users can sign out from the Profile page",
+        "The Profile page uses the existing useInternetIdentity hook for auth state"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "On the Profile page, add an 'My Orders' section that allows authenticated users to look up and view their past orders. Display each order's ID, date placed, total price, item list, and current status. Reuse the existing order retrieval backend query (getOrder) and the OrderStatusTimeline component for each order's status display.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "their orders"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Authenticated users on /profile see a 'My Orders' section",
+        "Users can enter an order ID to retrieve and display order details on their profile",
+        "Each order displays: order ID, date placed, total price, list of items, and current status",
+        "OrderStatusTimeline component is used to visualise the order status",
+        "Unauthenticated users see a message prompting them to sign in to view orders"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Add a 'Profile' navigation link in the site header (Header.tsx) that navigates to /profile. When the user is authenticated, the link or a user avatar/icon should be visually highlighted to indicate a logged-in state. Register the /profile route in App.tsx's router configuration.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "A separate profile section"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The header contains a 'Profile' link/icon that navigates to /profile",
+        "When authenticated, the header profile indicator is visually distinct (e.g., highlighted icon or avatar)",
+        "The /profile route is registered in App.tsx",
+        "The Profile link is present on both desktop and mobile navigation menus"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files listed in frontend.immutablePaths (useInternetIdentity.ts, useActor.ts, main.tsx, components/ui)",
+    "Reuse the existing useInternetIdentity hook for all authentication state management",
+    "Reuse the existing useGetOrder query hook for order retrieval",
+    "Maintain the existing luxury dark editorial (Jade) visual theme on the Profile page"
+  ],
+  "nonGoals": [
+    "Storing order history per user in the backend — order lookup is by order ID only",
+    "Editing or updating user account information",
+    "Adding new authentication providers beyond Internet Identity",
+    "A user registration/signup form (Internet Identity handles identity creation)"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
